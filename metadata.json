@@ -1,0 +1,8 @@
+
+{
+  "name": "EstateFlow CRM",
+  "description": "A comprehensive Real Estate CRM for lead-to-deal management with multi-role support, automated lead assignment, and advanced tracking for builder projects.",
+  "requestFramePermissions": [
+    "microphone"
+  ]
+}
