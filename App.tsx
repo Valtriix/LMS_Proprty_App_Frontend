@@ -1,12 +1,12 @@
 
 import React, { useState } from 'react';
-import { Layout } from './components/Layout';
-import { Dashboard } from './components/Dashboard';
-import { LeadList } from './components/Leads/LeadList';
-import { LeadDetail } from './components/Leads/LeadDetail';
-import { VCVPManager } from './components/VCVP/VCVPManager';
-import { SiteVisitManager } from './components/SiteVisits/SiteVisitManager';
-import { CrossPitchManager } from './components/CrossPitch/CrossPitchManager';
+import { Layout } from './src/components/Layout';
+import { Dashboard } from './src/components/Dashboard';
+import { LeadList } from './src/components/Leads/LeadList';
+import { LeadDetail } from './src/components/Leads/LeadDetail';
+import { VCVPManager } from './src/components/VCVP/VCVPManager';
+import { SiteVisitManager } from './src/components/SiteVisits/SiteVisitManager';
+import { CrossPitchManager } from './src/components/CrossPitch/CrossPitchManager';
 import { 
   MOCK_LEADS, 
   MOCK_USERS, 
@@ -25,6 +25,15 @@ import {
   CrossPitchProposal
 } from './types';
 import { onProjectActivated } from './services/crmEngine';
+import User from './User';
+import { BrowserRouter, Route, Routes } from 'react-router-dom';
+import UserForm from './src/pages/UserForm';
+import DeveloperForm from './src/pages/DeveloperForm';
+import ProjectsGrid from './src/pages/ProjectsGrid';
+import Home from './src/pages/Home';
+import LeadHome from './src/pages/LeadHome';
+import LeadForm from './src/pages/LeadForm';
+
 
 const App: React.FC = () => {
   const [user, setUser] = useState(MOCK_USERS[0]); 
@@ -224,22 +233,46 @@ const App: React.FC = () => {
               Sign in as Sales Executive
             </button>
           </div>
-          <p className="mt-8 text-[10px] text-slate-400 font-bold uppercase tracking-widest">Powered by Gemini Engine</p>
+          <p className="mt-8 text-[10px] text-slate-400 font-bold uppercase tracking-widest">Powered by Valtriix IT Solutions</p>
         </div>
       </div>
     );
   }
 
   return (
-    <Layout 
-      user={user} 
-      onLogout={() => setIsAuthenticated(false)} 
-      activeTab={activeTab} 
-      setActiveTab={(t) => { setActiveTab(t); setSelectedLeadId(null); }}
-    >
-      {renderContent()}
-    </Layout>
+    // <Layout 
+    //   user={user} 
+    //   onLogout={() => setIsAuthenticated(false)} 
+    //   activeTab={activeTab} 
+    //   setActiveTab={(t) => { setActiveTab(t); setSelectedLeadId(null); }}
+    // >
+    //   {renderContent()}
+    //   <User/>
+
+    // </Layout>
+
+    <BrowserRouter>
+      <Routes>
+ 
+        { /* DEFAULT PAGE */}
+       {/* <Route path="/" element={<Home />} /> */}
+       <Route path="/" element={<LeadHome />}/> 
+       <Route path="/leads/new" element={<LeadForm />} />
+ 
+       /**
+         <Route path="/user-registration" element={<UserForm/>} />
+       
+         <Route path="/developer-registration" element={<DeveloperForm/>} />
+         <Route path="/projects" element={<ProjectsGrid title="Projects" projects={projects} />} /> */
+       
+       
+ 
+      </Routes>
+    </BrowserRouter>
+
+
   );
 };
 
 export default App;
+

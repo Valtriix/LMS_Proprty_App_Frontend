@@ -1,6 +1,6 @@
 
 import React from 'react';
-import { Lead, CrossPitchProposal, Project } from '../../types';
+import { Lead, CrossPitchProposal, Project } from '@/types';
 
 interface CrossPitchManagerProps {
   proposals: CrossPitchProposal[];
