@@ -1,5 +1,5 @@
 import { EntityStatus, Project } from "@/types";
-import React, { useState } from "react";
+import React, { useState, useMemo } from "react";
 import { useNavigate, useLocation } from "react-router-dom";
 
 interface ProjectsGridProps {
@@ -10,35 +10,36 @@ interface ProjectsGridProps {
 const ProjectsGrid: React.FC<ProjectsGridProps> = ({ title, projects }) => {
   const navigate = useNavigate();
   const location = useLocation();
-
   const [searchQuery, setSearchQuery] = useState("");
 
-  //  Get pincode from URL and trim spaces
+  // Get pincode from URL
   const queryParams = new URLSearchParams(location.search);
   const pincodeFromURL = queryParams.get("pincode")?.trim();
 
-  //  Combined Filter Logic
-  const filteredProjects = projects.filter((project) => {
-    // Only ACTIVE
-    if (project.status !== EntityStatus.ACTIVE) return false;
+  //  Optimized Combined Filter Logic
+  const filteredProjects = useMemo(() => {
+    return projects.filter((project) => {
+      // Only ACTIVE projects
+      if (project.status !== EntityStatus.ACTIVE) return false;
 
-    // URL pincode filter (if exists)
-    if (pincodeFromURL && project.pincode.trim() !== pincodeFromURL) {
-      return false;
-    }
+      const q = searchQuery.trim().toLowerCase();
 
-    // Search filter (if exists)
-    if (searchQuery) {
-      const q = searchQuery.toLowerCase();
-      return (
-        project.name.toLowerCase().includes(q) ||
-        project.pincode.includes(q)
-      );
-    }
+      //  If user is searching → search in ALL active projects
+      if (q) {
+        return (
+          project.name.toLowerCase().includes(q) ||
+          project.pincode.includes(q)
+        );
+      }
 
-    // Otherwise include
-    return true;
-  });
+      //  If no search → filter by URL pincode (if exists)
+      if (pincodeFromURL) {
+        return project.pincode.trim() === pincodeFromURL;
+      }
+
+      return true;
+    });
+  }, [projects, searchQuery, pincodeFromURL]);
 
   return (
     <div
@@ -51,7 +52,8 @@ const ProjectsGrid: React.FC<ProjectsGridProps> = ({ title, projects }) => {
       <div className="absolute inset-0 bg-black/40"></div>
 
       <div className="relative max-w-7xl mx-auto">
-        <div className="bg-white/95 backdrop-blur-md p-8 rounded-3xl shadow-lg">
+        {/*  Reduced opacity so background is more visible */}
+        <div className="bg-white/70 backdrop-blur-md p-8 rounded-3xl shadow-lg">
 
           {/* Back button */}
           <div className="flex justify-end mb-4">
@@ -65,7 +67,7 @@ const ProjectsGrid: React.FC<ProjectsGridProps> = ({ title, projects }) => {
 
           <h2 className="text-2xl font-bold mb-6">{title}</h2>
 
-          {/*  Search Input Always Active */}
+          {/* Search Input */}
           <input
             type="text"
             placeholder="Search by project name or pincode..."
@@ -108,7 +110,9 @@ const ProjectsGrid: React.FC<ProjectsGridProps> = ({ title, projects }) => {
               ))
             ) : (
               <p className="text-gray-500 col-span-full">
-                {pincodeFromURL
+                {searchQuery
+                  ? "No projects match your search."
+                  : pincodeFromURL
                   ? "No active projects available for this pincode."
                   : "No projects found."}
               </p>
