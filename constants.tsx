@@ -32,6 +32,20 @@ export const MOCK_PROJECTS: Project[] = [
   { id: 'p1', name: 'Blue Horizon Towers', areaId: 'a1', cityId: 'c1', status: EntityStatus.ACTIVE, salesTeamIds: ['u2'], pincode: '400053', lat: 19.1136, lng: 72.8697 },
   { id: 'p2', name: 'Oceanic Residences', areaId: 'a2', cityId: 'c1', status: EntityStatus.ACTIVE, salesTeamIds: ['u2', 'u3'], pincode: '400050', lat: 19.0596, lng: 72.8295 },
   { id: 'p3', name: 'IT Tech Park Living', areaId: 'a3', cityId: 'c2', status: EntityStatus.ACTIVE, salesTeamIds: ['u3'], pincode: '411057', lat: 18.5913, lng: 73.7389 },
+   { id: 'p4', name: 'Blue Horizon Towers', areaId: 'a1', cityId: 'c1', status: EntityStatus.ACTIVE, salesTeamIds: ['u2'], pincode: '400053', lat: 19.1136, lng: 72.8697 },
+  { id: 'p5', name: 'Oceanic Residences', areaId: 'a2', cityId: 'c1', status: EntityStatus.ACTIVE, salesTeamIds: ['u2', 'u3'], pincode: '400050', lat: 19.0596, lng: 72.8295 },
+  { id: 'p6', name: 'IT Tech Park Living', areaId: 'a3', cityId: 'c2', status: EntityStatus.ACTIVE, salesTeamIds: ['u3'], pincode: '411057', lat: 18.5913, lng: 73.7389 },
+  { id: 'p7', name: 'Sunset Heights', areaId: 'a2', cityId: 'c1', status: EntityStatus.ACTIVE, salesTeamIds: ['u1'], pincode: '400050', lat: 19.0601, lng: 72.8300 },
+ { id: 'p8', name: 'Palm Residency', areaId: 'a2', cityId: 'c1', status: EntityStatus.ACTIVE, salesTeamIds: ['u2'], pincode: '400050', lat: 19.0587, lng: 72.8284 },
+{ id: 'p9', name: 'Sea Breeze Apartments', areaId: 'a2', cityId: 'c1', status: EntityStatus.ACTIVE, salesTeamIds: ['u3'], pincode: '400050', lat: 19.0615, lng: 72.8321 },
+{ id: 'p10', name: 'Golden Crest Towers', areaId: 'a2', cityId: 'c1', status: EntityStatus.ACTIVE, salesTeamIds: ['u1', 'u3'], pincode: '400050', lat: 19.0572, lng: 72.8276 },
+{ id: 'p11', name: 'Skyline Residency', areaId: 'a2', cityId: 'c1', status: EntityStatus.ACTIVE, salesTeamIds: ['u2'], pincode: '400050', lat: 19.0623, lng: 72.8310 },
+{ id: 'p12', name: 'Harbor View Homes', areaId: 'a2', cityId: 'c1', status: EntityStatus.ACTIVE, salesTeamIds: ['u1'], pincode: '400050', lat: 19.0564, lng: 72.8268 },
+{ id: 'p13', name: 'Elite Pearl Residency', areaId: 'a2', cityId: 'c1', status: EntityStatus.ACTIVE, salesTeamIds: ['u3'], pincode: '400050', lat: 19.0590, lng: 72.8298 },
+{ id: 'p14', name: 'Coral Bay Heights', areaId: 'a2', cityId: 'c1', status: EntityStatus.ACTIVE, salesTeamIds: ['u2', 'u3'], pincode: '400050', lat: 19.0630, lng: 72.8332 },
+{ id: 'p15', name: 'Royal Orchid Towers', areaId: 'a2', cityId: 'c1', status: EntityStatus.ACTIVE, salesTeamIds: ['u1'], pincode: '400050', lat: 19.0581, lng: 72.8289 },
+{ id: 'p16', name: 'Emerald Coast Residency', areaId: 'a2', cityId: 'c1', status: EntityStatus.ACTIVE, salesTeamIds: ['u1', 'u2'], pincode: '400050', lat: 19.0608, lng: 72.8307 }
+
 ];
 
 export const MOCK_LEADS: Lead[] = [
