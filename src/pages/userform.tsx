@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
-
+import "./UserForm.css";
+ 
 interface UserFormData {
   userName: string;
   email: string;
@@ -10,155 +11,234 @@ interface UserFormData {
   position: string;
   userStatus: string;
 }
-
+ 
 interface FormErrors {
   [key: string]: string;
 }
-
+ 
+// Email regex
+const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+ 
+//  Initial state
+const initialFormData: UserFormData = {
+  userName: "",
+  email: "",
+  contact: "",
+  pincode: "",
+  department: "",
+  position: "",
+  userStatus: "Active",
+};
+ 
 const UserForm = () => {
   const navigate = useNavigate();
-
-  const [formData, setFormData] = useState<UserFormData>({
-    userName: "",
-    email: "",
-    contact: "",
-    pincode: "",
-    department: "",
-    position: "",
-    userStatus: "",
-  });
-
-  const [errors, setErrors] = useState<FormErrors>({});
-
-  const validateField = (name: string, value: string) => {
+ 
+  const [formData, setFormData] = useState<UserFormData>(initialFormData);
+  const [formErrors, setFormErrors] = useState<FormErrors>({});
+ 
+  // Validation function
+  const validateField = (name: keyof UserFormData, value: string) => {
     switch (name) {
       case "userName":
-        return value.trim() ? "" : "User name is required";
-
+        if (!value) return "User Name is required";
+        if (value.length < 3) return "User Name must be at least 3 characters";
+        return "";
       case "email":
-        return /^\S+@\S+\.\S+$/.test(value)
-          ? ""
-          : "Valid email is required";
-
+        if (!value) return "Email is required";
+        if (!emailRegex.test(value)) return "Invalid email format";
+        return "";
       case "contact":
-        return /^[6-9]\d{9}$/.test(value)
-          ? ""
-          : "Valid 10-digit contact required";
-
+         if (!value) return "Contact is required";
+        if (value && !/^\d{10}$/.test(value)) return "Contact must be 10 digits";
+        return "";
       case "pincode":
-        return /^\d{6}$/.test(value)
-          ? ""
-          : "Valid 6-digit pincode required";
-
+         if (!value) return "Pincode is required";
+        if (value && !/^\d{6}$/.test(value)) return "Pincode must be 6 digits";
+        return "";
       case "department":
-        return value.trim() ? "" : "Department required";
-
+        if (!value) return "Department is required";
+        return "";
       case "position":
-        return value.trim() ? "" : "Position required";
-
-      case "userStatus":
-        return value.trim() ? "" : "Status required";
-
+        if (!value) return "Position is required";
+        return "";
       default:
         return "";
     }
   };
-
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+ 
+  // Handle input changes
+  const handleChange = (
+    e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>
+  ) => {
     const { name, value } = e.target;
-
-    setFormData((prev) => ({ ...prev, [name]: value }));
-
-    const errorMsg = validateField(name, value);
-    setErrors((prev) => ({ ...prev, [name]: errorMsg }));
+    setFormData(prev => ({ ...prev, [name]: value }));
+    const error = validateField(name as keyof UserFormData, value);
+    setFormErrors(prev => ({ ...prev, [name]: error }));
   };
-
-  const validateForm = () => {
-    const newErrors: FormErrors = {};
-
-    Object.keys(formData).forEach((key) => {
-      const error = validateField(
-        key,
-        formData[key as keyof typeof formData]
-      );
-      if (error) newErrors[key] = error;
-    });
-
-    setErrors(newErrors);
-    return Object.keys(newErrors).length === 0;
-  };
-
+ 
+  // Handle form submission
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    if (!validateForm()) return;
-
-    console.log("User saved:", formData);
-    navigate("/projects");
+ 
+    const errors: FormErrors = {};
+ 
+    // Validate all fields
+    (Object.keys(formData) as (keyof UserFormData)[]).forEach(key => {
+      const error = validateField(key, formData[key]);
+      if (error) errors[key] = error;
+    });
+ 
+    setFormErrors(errors);
+ 
+    if (Object.keys(errors).length === 0) {
+      console.log("User Payload →", formData);
+      // alert("Form submitted successfully!");
+ 
+      //  Reset form after successful submission
+      setFormData(initialFormData);
+      setFormErrors({});
+      navigate("/projects");
+    } else {
+      console.log("Validation errors →", errors);
+    }
   };
-
+ 
+  // Handle Cancel button → go back to home page
+  const handleCancel = () => {
+    navigate("/"); // 🔹 Redirect to Home
+  };
+ 
   return (
-    <div
-      className="min-h-screen bg-cover bg-center relative flex items-center justify-center px-4"
-      style={{
-        backgroundImage:
-          "url('https://images.unsplash.com/photo-1560448204-e02f11c3d0e2')",
-      }}
-    >
-      {/* Dark overlay */}
-      <div className="absolute inset-0 bg-black/60"></div>
-
-      {/* Form Card */}
-      <div className="relative z-10 w-full max-w-2xl bg-white/90 backdrop-blur-md
-                      rounded-2xl shadow-2xl p-6">
-
-        {/* Header */}
-        <div className="flex justify-between items-center mb-4">
-          <h2 className="text-lg font-semibold text-gray-800">
-            Create User
-          </h2>
-          <button
-            onClick={() => navigate("/")}
-            className="text-sm text-blue-700 hover:underline"
-          >
-            ← Back
-          </button>
-        </div>
-
-        <form onSubmit={handleSubmit} className="grid grid-cols-2 gap-4">
-
-          {[
-            { name: "userName", placeholder: "User Name *" },
-            { name: "email", placeholder: "Email *" },
-            { name: "contact", placeholder: "Contact *" },
-            { name: "pincode", placeholder: "Pincode *" },
-            { name: "department", placeholder: "Department *" },
-            { name: "position", placeholder: "Position *" },
-            { name: "userStatus", placeholder: "Status *" },
-          ].map((field) => (
-            <div key={field.name}>
-              <input
-                name={field.name}
-                placeholder={field.placeholder}
-                onChange={handleChange}
-                className="w-full h-9 px-3 text-sm rounded-md border
-                           border-gray-300 focus:outline-none
-                           focus:ring-2 focus:ring-blue-500"
-              />
-              {errors[field.name] && (
-                <p className="text-xs text-red-600 mt-1">
-                  {errors[field.name]}
-                </p>
-              )}
+    <div className="user-form-page">
+      <div className="user-form-card">
+        <h1>Create User</h1>
+ 
+        <form onSubmit={handleSubmit}>
+          {/* BASIC INFO */}
+          <div className="form-section">
+            <h3>Basic Information</h3>
+            <div className="form-grid">
+              <div>
+                <label>User Name *</label>
+                <input
+                  name="userName"
+                  value={formData.userName}
+                  onChange={handleChange}
+                  placeholder="Enter full name"
+                />
+                {formErrors.userName && (
+                  <span className="error">{formErrors.userName}</span>
+                )}
+              </div>
+ 
+              <div>
+                <label>Email *</label>
+                <input
+                  type="email"
+                  name="email"
+                  value={formData.email}
+                  onChange={handleChange}
+                  placeholder="example@email.com"
+                />
+                {formErrors.email && (
+                  <span className="error">{formErrors.email}</span>
+                )}
+              </div>
+ 
+              <div>
+                <label>Contact</label>
+                <input
+                  name="contact"
+                  value={formData.contact}
+                  onChange={handleChange}
+                  placeholder="10-digit mobile number"
+                />
+                {formErrors.contact && (
+                  <span className="error">{formErrors.contact}</span>
+                )}
+              </div>
+ 
+              <div>
+                <label>Pincode</label>
+                <input
+                  name="pincode"
+                  value={formData.pincode}
+                  onChange={handleChange}
+                  placeholder="Enter area pincode"
+                />
+                {formErrors.pincode && (
+                  <span className="error">{formErrors.pincode}</span>
+                )}
+              </div>
+ 
+              <div>
+                <label>Status</label>
+                <select
+                  name="userStatus"
+                  value={formData.userStatus}
+                  onChange={handleChange}
+                >
+                  <option value="Active">Active</option>
+                  <option value="Inactive">Inactive</option>
+                </select>
+              </div>
             </div>
-          ))}
-
-          {/* Submit */}
-          <div className="col-span-2 text-right mt-3">
+          </div>
+ 
+          {/* ROLE INFO */}
+          <div className="form-section">
+            <h3>Role & Department</h3>
+            <div className="form-grid">
+              <div>
+                <label>Department *</label>
+                <select
+                  name="department"
+                  value={formData.department}
+                  onChange={handleChange}
+                >
+                  <option value="" disabled>
+                    Select Department
+                  </option>
+                  <option value="Sales">Sales</option>
+                  <option value="Marketing">Marketing</option>
+                  <option value="CRM">CRM</option>
+                </select>
+                {formErrors.department && (
+                  <span className="error">{formErrors.department}</span>
+                )}
+              </div>
+ 
+              <div>
+                <label>Position *</label>
+                <select
+                  name="position"
+                  value={formData.position}
+                  onChange={handleChange}
+                >
+                  <option value="" disabled>
+                    Select Position
+                  </option>
+                  <option value="Manager">Manager</option>
+                  <option value="Executive">Executive</option>
+                  <option value="Telecaller">Telecaller</option>
+                </select>
+                {formErrors.position && (
+                  <span className="error">{formErrors.position}</span>
+                )}
+              </div>
+            </div>
+          </div>
+ 
+          {/* ACTIONS */}
+          <div className="form-actions">
             <button
-              type="submit"
-              className="bg-slate-800 text-white px-6 py-2 rounded-md
-                         text-sm font-medium hover:bg-slate-900 transition"
+              type="button"
+              className="btn-secondary"
+              onClick={handleCancel}
             >
+              Back
+            </button>
+            <button type="submit" className="btn-primary">
               Save User
             </button>
           </div>
@@ -167,5 +247,6 @@ const UserForm = () => {
     </div>
   );
 };
-
+ 
 export default UserForm;
+ 

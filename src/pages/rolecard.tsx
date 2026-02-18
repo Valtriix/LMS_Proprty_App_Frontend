@@ -3,7 +3,7 @@ interface RoleCardProps {
   description: string;
   onClick: () => void;
 }
-
+ 
 const RoleCard = ({ title, description, onClick }: RoleCardProps) => {
   return (
     <div
@@ -28,5 +28,5 @@ const RoleCard = ({ title, description, onClick }: RoleCardProps) => {
     </div>
   );
 };
-
+ 
 export default RoleCard;

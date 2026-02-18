@@ -1,16 +1,6 @@
 
 import React, { useState } from 'react';
-<<<<<<< HEAD
 
-=======
-import { Layout } from './src/components/Layout';
-import { Dashboard } from './src/components/Dashboard';
-import { LeadList } from './src/components/Leads/LeadList';
-import { LeadDetail } from './src/components/Leads/LeadDetail';
-import { VCVPManager } from './src/components/VCVP/VCVPManager';
-import { SiteVisitManager } from './src/components/SiteVisits/SiteVisitManager';
-import { CrossPitchManager } from './src/components/CrossPitch/CrossPitchManager';
->>>>>>> ebfdc555361a9591b22a974a4adbea7818f01f68
 import { 
   MOCK_LEADS, 
   MOCK_USERS, 
@@ -29,7 +19,6 @@ import {
   CrossPitchProposal
 } from './types';
 import { onProjectActivated } from './services/crmEngine';
-<<<<<<< HEAD
 import { LeadDetail } from './src/components/Leads/LeadDetail';
 import { Dashboard } from './src/components/Dashboard';
 import { LeadList } from './src/components/Leads/LeadList';
@@ -40,17 +29,6 @@ import { Layout } from './src/components/Layout';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import Home from './src/pages/home';
 import ProjectsGrid from './src/pages/ProjectsGrid';
-=======
-import User from './User';
-import { BrowserRouter, Route, Routes } from 'react-router-dom';
-import UserForm from './src/pages/UserForm';
-import DeveloperForm from './src/pages/DeveloperForm';
-import ProjectsGrid from './src/pages/ProjectsGrid';
-import Home from './src/pages/Home';
-import LeadHome from './src/pages/LeadHome';
-import LeadForm from './src/pages/LeadForm';
-
->>>>>>> ebfdc555361a9591b22a974a4adbea7818f01f68
 
 const App: React.FC = () => {
   const [user, setUser] = useState(MOCK_USERS[0]); 
@@ -250,7 +228,7 @@ const App: React.FC = () => {
               Sign in as Sales Executive
             </button>
           </div>
-          <p className="mt-8 text-[10px] text-slate-400 font-bold uppercase tracking-widest">Powered by Valtriix IT Solutions</p>
+          <p className="mt-8 text-[10px] text-slate-400 font-bold uppercase tracking-widest">Powered by Gemini Engine</p>
         </div>
       </div>
     );
@@ -264,16 +242,10 @@ const App: React.FC = () => {
     //   setActiveTab={(t) => { setActiveTab(t); setSelectedLeadId(null); }}
     // >
     //   {renderContent()}
-<<<<<<< HEAD
-=======
-    //   <User/>
-
->>>>>>> ebfdc555361a9591b22a974a4adbea7818f01f68
     // </Layout>
 
     <BrowserRouter>
       <Routes>
-<<<<<<< HEAD
 
         
          {/* <Route path="/" element={<Home />} /> 
@@ -299,28 +271,7 @@ const App: React.FC = () => {
 
       </Routes>
     </BrowserRouter>
-=======
- 
-        { /* DEFAULT PAGE */}
-       {/* <Route path="/" element={<Home />} /> */}
-       <Route path="/" element={<LeadHome />}/> 
-       <Route path="/leads/new" element={<LeadForm />} />
- 
-       /**
-         <Route path="/user-registration" element={<UserForm/>} />
-       
-         <Route path="/developer-registration" element={<DeveloperForm/>} />
-         <Route path="/projects" element={<ProjectsGrid title="Projects" projects={projects} />} /> */
-       
-       
- 
-      </Routes>
-    </BrowserRouter>
-
-
->>>>>>> ebfdc555361a9591b22a974a4adbea7818f01f68
   );
 };
 
 export default App;
-

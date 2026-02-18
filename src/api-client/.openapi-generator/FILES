@@ -7,11 +7,6 @@ common.ts
 configuration.ts
 docs/Lead.md
 docs/LeadsApi.md
-<<<<<<< HEAD
-=======
-docs/Project.md
-docs/ProjectsApi.md
->>>>>>> ebfdc555361a9591b22a974a4adbea7818f01f68
 docs/User.md
 docs/UsersApi.md
 git_push.sh
