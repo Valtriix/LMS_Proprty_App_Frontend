@@ -1,6 +1,12 @@
 
 import React, { useState } from 'react';
-
+import { Layout } from './components/Layout';
+import { Dashboard } from './components/Dashboard';
+import { LeadList } from './components/Leads/LeadList';
+import { LeadDetail } from './components/Leads/LeadDetail';
+import { VCVPManager } from './components/VCVP/VCVPManager';
+import { SiteVisitManager } from './components/SiteVisits/SiteVisitManager';
+import { CrossPitchManager } from './components/CrossPitch/CrossPitchManager';
 import { 
   MOCK_LEADS, 
   MOCK_USERS, 
@@ -19,16 +25,6 @@ import {
   CrossPitchProposal
 } from './types';
 import { onProjectActivated } from './services/crmEngine';
-import { LeadDetail } from './src/components/Leads/LeadDetail';
-import { Dashboard } from './src/components/Dashboard';
-import { LeadList } from './src/components/Leads/LeadList';
-import { VCVPManager } from './src/components/VCVP/VCVPManager';
-import { SiteVisitManager } from './src/components/SiteVisits/SiteVisitManager';
-import { CrossPitchManager } from './src/components/CrossPitch/CrossPitchManager';
-import { Layout } from './src/components/Layout';
-import { BrowserRouter, Route, Routes } from 'react-router-dom';
-import Home from './src/pages/home';
-import ProjectsGrid from './src/pages/ProjectsGrid';
 
 const App: React.FC = () => {
   const [user, setUser] = useState(MOCK_USERS[0]); 
@@ -235,42 +231,14 @@ const App: React.FC = () => {
   }
 
   return (
-    // <Layout 
-    //   user={user} 
-    //   onLogout={() => setIsAuthenticated(false)} 
-    //   activeTab={activeTab} 
-    //   setActiveTab={(t) => { setActiveTab(t); setSelectedLeadId(null); }}
-    // >
-    //   {renderContent()}
-    // </Layout>
-
-    <BrowserRouter>
-      <Routes>
-
-        
-         {/* <Route path="/" element={<Home />} /> 
-
-        
-        <Route path="/user-registration" element={<UserForm/>} />
-        
-        <Route path="/developer-registration" element={<DeveloperForm/>} />
-        <Route path="/projects" element={<ProjectsGrid title="Projects" projects={projects} />} />
-        
-        <Route path="/leads" element={<LeadList 
-            leads={leads} 
-            onSelectLead={(l) => setSelectedLeadId(l.id)} 
-            onUpdateStatus={handleUpdateStatus}
-          />}/>
-        <Route path="/leads/create" element={<LeadForm />} /> */}
-
-         <Route path="/" element={<Home/>} />
-         <Route path="/projects" element={<ProjectsGrid title="Projects" projects={projects} />} />
-        
-      
-       
-
-      </Routes>
-    </BrowserRouter>
+    <Layout 
+      user={user} 
+      onLogout={() => setIsAuthenticated(false)} 
+      activeTab={activeTab} 
+      setActiveTab={(t) => { setActiveTab(t); setSelectedLeadId(null); }}
+    >
+      {renderContent()}
+    </Layout>
   );
 };
 

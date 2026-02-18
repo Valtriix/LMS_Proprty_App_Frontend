@@ -1,6 +1,6 @@
 
 import React, { useState, useEffect } from 'react';
-import { Lead, LeadStatus, LeadQualification, Project } from '@/types';
+import { Lead, LeadStatus, LeadQualification, Project } from '../../types';
 
 interface SiteVisitManagerProps {
   leads: Lead[];

@@ -14,7 +14,7 @@ import {
   Pie, 
   Cell 
 } from 'recharts';
-import { Lead, UserRole, LeadStatus } from '@/types';
+import { Lead, UserRole, LeadStatus } from '../types';
 
 interface DashboardProps {
   leads: Lead[];

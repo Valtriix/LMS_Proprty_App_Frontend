@@ -1,6 +1,6 @@
 
 import React, { useState } from 'react';
-import { Lead, Task, LeadStatus, Project } from '@/types';
+import { Lead, Task, LeadStatus, Project } from '../../types';
 
 interface LeadDetailProps {
   lead: Lead;
