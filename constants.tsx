@@ -32,6 +32,19 @@ export const MOCK_PROJECTS: Project[] = [
   { id: 'p1', name: 'Blue Horizon Towers', areaId: 'a1', cityId: 'c1', status: EntityStatus.ACTIVE, salesTeamIds: ['u2'], pincode: '400053', lat: 19.1136, lng: 72.8697 },
   { id: 'p2', name: 'Oceanic Residences', areaId: 'a2', cityId: 'c1', status: EntityStatus.ACTIVE, salesTeamIds: ['u2', 'u3'], pincode: '400050', lat: 19.0596, lng: 72.8295 },
   { id: 'p3', name: 'IT Tech Park Living', areaId: 'a3', cityId: 'c2', status: EntityStatus.ACTIVE, salesTeamIds: ['u3'], pincode: '411057', lat: 18.5913, lng: 73.7389 },
+  { id: 'p4', name: 'Tech Valley Residency', areaId: 'a3', cityId: 'c2', status: EntityStatus.ACTIVE, salesTeamIds: ['u4'], pincode: '411057', lat: 18.5941, lng: 73.7422 },
+  { id: 'p5', name: 'Cyber Greens Apartments', areaId: 'a3', cityId: 'c2', status: EntityStatus.ACTIVE, salesTeamIds: ['u5'], pincode: '411057', lat: 18.5897, lng: 73.7365 },
+  { id: 'p6', name: 'Infotech Heights', areaId: 'a3', cityId: 'c2', status: EntityStatus.ACTIVE, salesTeamIds: ['u6'], pincode: '411060', lat: 18.5930, lng: 73.7408 },
+  { id: 'p7', name: 'Digital Horizon Homes', areaId: 'a3', cityId: 'c2', status: EntityStatus.ACTIVE, salesTeamIds: ['u7'], pincode: '411060', lat: 18.5925, lng: 73.7391 },
+  { id: 'p8', name: 'Silicon Crest Residency', areaId: 'a3', cityId: 'c2', status: EntityStatus.ACTIVE, salesTeamIds: ['u8'], pincode: '411060', lat: 18.5902, lng: 73.7414 },
+  { id: 'p9', name: 'Techno Park Towers', areaId: 'a3', cityId: 'c2', status: EntityStatus.ACTIVE, salesTeamIds: ['u9'], pincode: '411010', lat: 18.5889, lng: 73.7378 },
+  { id: 'p10', name: 'Innovation Enclave', areaId: 'a3', cityId: 'c2', status: EntityStatus.ACTIVE, salesTeamIds: ['u10'], pincode: '411010', lat: 18.5938, lng: 73.7430 },
+  { id: 'p11', name: 'Byte City Residency', areaId: 'a3', cityId: 'c2', status: EntityStatus.ACTIVE, salesTeamIds: ['u11'], pincode: '411010', lat: 18.5910, lng: 73.7359 },
+  { id: 'p12', name: 'FutureTech Habitat', areaId: 'a3', cityId: 'c2', status: EntityStatus.ACTIVE, salesTeamIds: ['u12'], pincode: '411017', lat: 18.5946, lng: 73.7442 },
+  { id: 'p13', name: 'Metro IT Residency', areaId: 'a3', cityId: 'c2', status: EntityStatus.ACTIVE, salesTeamIds: ['u13'], pincode: '411017', lat: 18.5876, lng: 73.7384 },
+  { id: 'p14', name: 'Code Square Apartments', areaId: 'a3', cityId: 'c2', status: EntityStatus.ACTIVE, salesTeamIds: ['u14'], pincode: '411017', lat: 18.5951, lng: 73.7402 }
+
+
 ];
 
 export const MOCK_LEADS: Lead[] = [

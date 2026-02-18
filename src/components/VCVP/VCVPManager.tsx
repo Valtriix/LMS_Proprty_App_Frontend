@@ -1,6 +1,6 @@
 
 import React from 'react';
-import { Lead, LeadStatus } from '../../types';
+import { Lead, LeadStatus } from '@/types';
 
 interface VCVPManagerProps {
   leads: Lead[];
