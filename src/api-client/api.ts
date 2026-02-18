@@ -43,6 +43,8 @@ export interface Lead {
     'landingPageUrl'?: string;
     'configuration'?: string;
 }
+<<<<<<< HEAD
+=======
 export interface Project {
     'id'?: string;
     'projectName': string;
@@ -55,6 +57,7 @@ export interface Project {
     'tagPeriodDays'?: number;
     'projectOwnerIds'?: Array<string>;
 }
+>>>>>>> ebfdc555361a9591b22a974a4adbea7818f01f68
 export interface User {
     'id'?: string;
     'userStatus'?: string;
@@ -579,6 +582,8 @@ export class LeadsApi extends BaseAPI {
 
 
 /**
+<<<<<<< HEAD
+=======
  * ProjectsApi - axios parameter creator
  */
 export const ProjectsApiAxiosParamCreator = function (configuration?: Configuration) {
@@ -1077,6 +1082,7 @@ export class ProjectsApi extends BaseAPI {
 
 
 /**
+>>>>>>> ebfdc555361a9591b22a974a4adbea7818f01f68
  * UsersApi - axios parameter creator
  */
 export const UsersApiAxiosParamCreator = function (configuration?: Configuration) {
