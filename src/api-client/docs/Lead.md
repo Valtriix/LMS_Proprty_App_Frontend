@@ -12,6 +12,7 @@ Name | Type | Description | Notes
 **email** | **string** |  | [optional] [default to undefined]
 **contactNo** | **string** |  | [default to undefined]
 **whatsappNo** | **string** |  | [optional] [default to undefined]
+**pincode** | **string** |  | [default to undefined]
 **leadQuality** | **string** |  | [optional] [default to undefined]
 **status** | **string** |  | [optional] [default to undefined]
 **projectId** | **string** |  | [optional] [default to undefined]
@@ -37,6 +38,7 @@ const instance: Lead = {
     email,
     contactNo,
     whatsappNo,
+    pincode,
     leadQuality,
     status,
     projectId,

@@ -1,13 +1,23 @@
 import { useState, useEffect } from "react";
-import EnrollForm from "../components/EnrollForm";
-
+import EnrollForm from "./LeadForm";
 
 const Home = () => {
   const [openForm, setOpenForm] = useState(false);
 
-  useEffect(() => {
-    setOpenForm(true); // auto open on page load
-  }, []);
+  //  Open form after 3 seconds
+      useEffect(() => {
+      const hasOpened = sessionStorage.getItem("enrollOpened");
+
+      if (!hasOpened) {
+        const timer = setTimeout(() => {
+          setOpenForm(true);
+          sessionStorage.setItem("enrollOpened", "true");
+        }, 3000);
+
+        return () => clearTimeout(timer);
+      }
+    }, []);
+
 
   return (
     <div

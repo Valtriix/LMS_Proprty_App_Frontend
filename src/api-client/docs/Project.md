@@ -9,6 +9,8 @@ Name | Type | Description | Notes
 **projectName** | **string** |  | [default to undefined]
 **developerId** | **string** |  | [default to undefined]
 **locationId** | **string** |  | [default to undefined]
+**pincode** | **string** |  | [default to undefined]
+**status** | **string** |  | [default to undefined]
 **microMarket** | **string** |  | [optional] [default to undefined]
 **projectType** | **string** |  | [optional] [default to undefined]
 **sourcingManagerId** | **string** |  | [optional] [default to undefined]
@@ -26,6 +28,8 @@ const instance: Project = {
     projectName,
     developerId,
     locationId,
+    pincode,
+    status,
     microMarket,
     projectType,
     sourcingManagerId,

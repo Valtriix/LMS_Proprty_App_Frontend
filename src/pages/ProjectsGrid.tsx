@@ -40,7 +40,7 @@ const ProjectsGrid: React.FC<ProjectsGridProps> = ({ title, projects }) => {
       className="h-screen bg-cover bg-center bg-fixed relative overflow-y-auto p-8"
       style={{
         backgroundImage:
-          "url('https://images.unsplash.com/photo-1564013799919-ab600027ffc6')",
+          "url('https://images.unsplash.com/photo-1600607687939-ce8a6c25118c')",
       }}
     >
       {/* Soft gradient overlay instead of black */}

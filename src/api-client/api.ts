@@ -31,6 +31,7 @@ export interface Lead {
     'email'?: string;
     'contactNo': string;
     'whatsappNo'?: string;
+    'pincode': string;
     'leadQuality'?: string;
     'status'?: string;
     'projectId'?: string;
@@ -48,6 +49,8 @@ export interface Project {
     'projectName': string;
     'developerId': string;
     'locationId': string;
+    'pincode': string;
+    'status': ProjectStatusEnum;
     'microMarket'?: string;
     'projectType'?: string;
     'sourcingManagerId'?: string;
@@ -55,6 +58,14 @@ export interface Project {
     'tagPeriodDays'?: number;
     'projectOwnerIds'?: Array<string>;
 }
+
+export const ProjectStatusEnum = {
+    Active: 'ACTIVE',
+    Inactive: 'INACTIVE'
+} as const;
+
+export type ProjectStatusEnum = typeof ProjectStatusEnum[keyof typeof ProjectStatusEnum];
+
 export interface User {
     'id'?: string;
     'userStatus'?: string;
