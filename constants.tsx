@@ -1,4 +1,3 @@
-
 import { 
   UserRole, 
   EntityStatus, 
@@ -32,20 +31,46 @@ export const MOCK_PROJECTS: Project[] = [
   { id: 'p1', name: 'Blue Horizon Towers', areaId: 'a1', cityId: 'c1', status: EntityStatus.ACTIVE, salesTeamIds: ['u2'], pincode: '400053', lat: 19.1136, lng: 72.8697 },
   { id: 'p2', name: 'Oceanic Residences', areaId: 'a2', cityId: 'c1', status: EntityStatus.ACTIVE, salesTeamIds: ['u2', 'u3'], pincode: '400050', lat: 19.0596, lng: 72.8295 },
   { id: 'p3', name: 'IT Tech Park Living', areaId: 'a3', cityId: 'c2', status: EntityStatus.ACTIVE, salesTeamIds: ['u3'], pincode: '411057', lat: 18.5913, lng: 73.7389 },
-  { id: 'p4', name: 'Tech Valley Residency', areaId: 'a3', cityId: 'c2', status: EntityStatus.ACTIVE, salesTeamIds: ['u4'], pincode: '411057', lat: 18.5941, lng: 73.7422 },
-  { id: 'p5', name: 'Cyber Greens Apartments', areaId: 'a3', cityId: 'c2', status: EntityStatus.ACTIVE, salesTeamIds: ['u5'], pincode: '411057', lat: 18.5897, lng: 73.7365 },
-  { id: 'p6', name: 'Infotech Heights', areaId: 'a3', cityId: 'c2', status: EntityStatus.ACTIVE, salesTeamIds: ['u6'], pincode: '411060', lat: 18.5930, lng: 73.7408 },
-  { id: 'p7', name: 'Digital Horizon Homes', areaId: 'a3', cityId: 'c2', status: EntityStatus.ACTIVE, salesTeamIds: ['u7'], pincode: '411060', lat: 18.5925, lng: 73.7391 },
-  { id: 'p8', name: 'Silicon Crest Residency', areaId: 'a3', cityId: 'c2', status: EntityStatus.ACTIVE, salesTeamIds: ['u8'], pincode: '411060', lat: 18.5902, lng: 73.7414 },
-  { id: 'p9', name: 'Techno Park Towers', areaId: 'a3', cityId: 'c2', status: EntityStatus.ACTIVE, salesTeamIds: ['u9'], pincode: '411010', lat: 18.5889, lng: 73.7378 },
-  { id: 'p10', name: 'Innovation Enclave', areaId: 'a3', cityId: 'c2', status: EntityStatus.ACTIVE, salesTeamIds: ['u10'], pincode: '411010', lat: 18.5938, lng: 73.7430 },
-  { id: 'p11', name: 'Byte City Residency', areaId: 'a3', cityId: 'c2', status: EntityStatus.ACTIVE, salesTeamIds: ['u11'], pincode: '411010', lat: 18.5910, lng: 73.7359 },
-  { id: 'p12', name: 'FutureTech Habitat', areaId: 'a3', cityId: 'c2', status: EntityStatus.ACTIVE, salesTeamIds: ['u12'], pincode: '411017', lat: 18.5946, lng: 73.7442 },
-  { id: 'p13', name: 'Metro IT Residency', areaId: 'a3', cityId: 'c2', status: EntityStatus.ACTIVE, salesTeamIds: ['u13'], pincode: '411017', lat: 18.5876, lng: 73.7384 },
-  { id: 'p14', name: 'Code Square Apartments', areaId: 'a3', cityId: 'c2', status: EntityStatus.ACTIVE, salesTeamIds: ['u14'], pincode: '411017', lat: 18.5951, lng: 73.7402 }
 
+  { id: 'p4', name: 'Blue Horizon Towers II', areaId: 'a1', cityId: 'c1', status: EntityStatus.ACTIVE, salesTeamIds: ['u2'], pincode: '400053', lat: 19.1150, lng: 72.8705 },
+  { id: 'p5', name: 'Oceanic Residency Annex', areaId: 'a2', cityId: 'c1', status: EntityStatus.ACTIVE, salesTeamIds: ['u2', 'u3'], pincode: '400050', lat: 19.0600, lng: 72.8288 },
+  { id: 'p6', name: 'IT Park Heights', areaId: 'a3', cityId: 'c2', status: EntityStatus.ACTIVE, salesTeamIds: ['u3'], pincode: '411057', lat: 18.5920, lng: 73.7400 },
 
+  { id: 'p7', name: 'Sunset Heights', areaId: 'a2', cityId: 'c1', status: EntityStatus.ACTIVE, salesTeamIds: ['u1'], pincode: '400050', lat: 19.0601, lng: 72.8300 },
+  { id: 'p8', name: 'Palm Residency', areaId: 'a2', cityId: 'c1', status: EntityStatus.ACTIVE, salesTeamIds: ['u2'], pincode: '400050', lat: 19.0587, lng: 72.8284 },
+  { id: 'p9', name: 'Sea Breeze Apartments', areaId: 'a2', cityId: 'c1', status: EntityStatus.ACTIVE, salesTeamIds: ['u3'], pincode: '400050', lat: 19.0615, lng: 72.8321 },
+
+  { id: 'p10', name: 'Golden Crest Towers', areaId: 'a2', cityId: 'c1', status: EntityStatus.ACTIVE, salesTeamIds: ['u1', 'u3'], pincode: '400050', lat: 19.0572, lng: 72.8276 },
+  { id: 'p11', name: 'Skyline Residency', areaId: 'a2', cityId: 'c1', status: EntityStatus.ACTIVE, salesTeamIds: ['u2'], pincode: '400050', lat: 19.0623, lng: 72.8310 },
+  { id: 'p12', name: 'Harbor View Homes', areaId: 'a2', cityId: 'c1', status: EntityStatus.ACTIVE, salesTeamIds: ['u1'], pincode: '400050', lat: 19.0564, lng: 72.8268 },
+
+  { id: 'p13', name: 'Elite Pearl Residency', areaId: 'a2', cityId: 'c1', status: EntityStatus.ACTIVE, salesTeamIds: ['u3'], pincode: '400050', lat: 19.0590, lng: 72.8298 },
+  { id: 'p14', name: 'Coral Bay Heights', areaId: 'a2', cityId: 'c1', status: EntityStatus.ACTIVE, salesTeamIds: ['u2', 'u3'], pincode: '400050', lat: 19.0630, lng: 72.8332 },
+  { id: 'p15', name: 'Royal Orchid Towers', areaId: 'a2', cityId: 'c1', status: EntityStatus.ACTIVE, salesTeamIds: ['u1'], pincode: '400050', lat: 19.0581, lng: 72.8289 },
+
+  { id: 'p16', name: 'Emerald Coast Residency', areaId: 'a2', cityId: 'c1', status: EntityStatus.ACTIVE, salesTeamIds: ['u1', 'u2'], pincode: '400050', lat: 19.0608, lng: 72.8307 },
+  { id: 'p17', name: 'Sunset Heights Phase 2', areaId: 'a2', cityId: 'c1', status: EntityStatus.ACTIVE, salesTeamIds: ['u1'], pincode: '400060', lat: 19.0601, lng: 72.8300 },
+
+  { id: 'p18', name: 'Maple Residency', areaId: 'a4', cityId: 'c1', status: EntityStatus.ACTIVE, salesTeamIds: ['u2'], pincode: '400061', lat: 19.1045, lng: 72.8362 },
+  { id: 'p19', name: 'Green Valley Homes', areaId: 'a5', cityId: 'c1', status: EntityStatus.ACTIVE, salesTeamIds: ['u3'], pincode: '400062', lat: 19.1173, lng: 72.8345 },
+  { id: 'p20', name: 'Crystal Heights', areaId: 'a6', cityId: 'c1', status: EntityStatus.ACTIVE, salesTeamIds: ['u1'], pincode: '400063', lat: 19.1550, lng: 72.8512 },
+
+  { id: 'p21', name: 'Silver Oak Apartments', areaId: 'a7', cityId: 'c1', status: EntityStatus.ACTIVE, salesTeamIds: ['u2'], pincode: '400064', lat: 19.1862, lng: 72.8480 },
+  { id: 'p22', name: 'Prestige Gardenia', areaId: 'a8', cityId: 'c1', status: EntityStatus.ACTIVE, salesTeamIds: ['u3'], pincode: '400065', lat: 19.2054, lng: 72.8445 },
+
+  { id: 'p23', name: 'Pune Central Heights', areaId: 'a9', cityId: 'c2', status: EntityStatus.ACTIVE, salesTeamIds: ['u1'], pincode: '411045', lat: 18.5590, lng: 73.7868 },
+  { id: 'p24', name: 'Baner Skyline', areaId: 'a9', cityId: 'c2', status: EntityStatus.ACTIVE, salesTeamIds: ['u2'], pincode: '411045', lat: 18.5602, lng: 73.7881 },
+
+  { id: 'p25', name: 'Hinjewadi Tech Residency', areaId: 'a10', cityId: 'c2', status: EntityStatus.ACTIVE, salesTeamIds: ['u3'], pincode: '411019', lat: 18.5995, lng: 73.7180 },
+  { id: 'p26', name: 'Riverfront Towers', areaId: 'a11', cityId: 'c2', status: EntityStatus.ACTIVE, salesTeamIds: ['u1'], pincode: '411028', lat: 18.5089, lng: 73.9250 },
+
+  { id: 'p27', name: 'Lakeview Residency', areaId: 'a12', cityId: 'c2', status: EntityStatus.ACTIVE, salesTeamIds: ['u2'], pincode: '411014', lat: 18.5679, lng: 73.9143 },
+  { id: 'p28', name: 'Urban Nest Apartments', areaId: 'a13', cityId: 'c2', status: EntityStatus.ACTIVE, salesTeamIds: ['u3'], pincode: '411001', lat: 18.5204, lng: 73.8567 },
+
+  { id: 'p29', name: 'Grand Metro Residency', areaId: 'a14', cityId: 'c1', status: EntityStatus.ACTIVE, salesTeamIds: ['u1'], pincode: '400070', lat: 19.0800, lng: 72.9000 },
+  { id: 'p30', name: 'Cityscape Towers', areaId: 'a15', cityId: 'c1', status: EntityStatus.ACTIVE, salesTeamIds: ['u2'], pincode: '400071', lat: 19.0728, lng: 72.8826 }
 ];
+
 
 export const MOCK_LEADS: Lead[] = [
   {

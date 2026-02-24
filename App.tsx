@@ -29,6 +29,8 @@ import { Layout } from './src/components/Layout';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import Home from './src/pages/home';
 import ProjectsGrid from './src/pages/ProjectsGrid';
+import UserForm from './src/pages/UserForm';
+import DeveloperForm from './src/pages/DeveloperForm';
 
 const App: React.FC = () => {
   const [user, setUser] = useState(MOCK_USERS[0]); 
@@ -264,7 +266,27 @@ const App: React.FC = () => {
         <Route path="/leads/create" element={<LeadForm />} /> */}
 
          <Route path="/" element={<Home/>} />
+         <Route path="/user-registration" element={<UserForm />} />
+         <Route path="/developer-registration" element={<DeveloperForm />} />
          <Route path="/projects" element={<ProjectsGrid title="Projects" projects={projects} />} />
+
+
+         <Route
+          path="/dashboard/*"
+          element={
+          <Layout
+            user={user}
+            onLogout={() => setIsAuthenticated(false)}
+            activeTab={activeTab}
+            setActiveTab={(t) => {
+              setActiveTab(t);
+              setSelectedLeadId(null);
+            }}
+          >
+            {renderContent()}
+          </Layout>
+        }
+      />
         
       
        
