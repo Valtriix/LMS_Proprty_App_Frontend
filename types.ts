@@ -1,4 +1,4 @@
-
+// USER ROLES
 export enum UserRole {
   ADMIN = 'ADMIN',
   SALES_EXECUTIVE = 'SALES_EXECUTIVE',
@@ -6,6 +6,7 @@ export enum UserRole {
   TELE_CALLER = 'TELE_CALLER'
 }
 
+// ENTITY STATUS (City, Area, Project)
 export enum EntityStatus {
   ACTIVE = 'ACTIVE',
   FUTURE = 'FUTURE',
@@ -13,16 +14,28 @@ export enum EntityStatus {
   COMPLETED = 'COMPLETED'
 }
 
+// LEAD STATUS (CRM PIPELINE)
 export enum LeadStatus {
+  // Initial Stage
   NEW = 'NEW',
+
+  // Active Pipeline
   IN_PROGRESS = 'IN_PROGRESS',
+  FOLLOW_UP = 'FOLLOW_UP',
+  SITE_VISIT_SCHEDULED = 'SITE_VISIT_SCHEDULED',
+  SITE_VISIT_DONE = 'SITE_VISIT_DONE',
+  NEGOTIATION = 'NEGOTIATION',
+
+  // Cross Pitch
   VCVP_PROPOSED = 'VCVP_PROPOSED',
   VCVP_CONFIRMED = 'VCVP_CONFIRMED',
-  SITE_VISIT_DONE = 'SITE_VISIT_DONE',
+
+  // Closure
   CLOSED_WON = 'CLOSED_WON',
   CLOSED_LOST = 'CLOSED_LOST'
 }
 
+// LEAD QUALIFICATION
 export enum LeadQualification {
   HOT = 'HOT',
   WARM = 'WARM',
@@ -30,6 +43,7 @@ export enum LeadQualification {
   LOST = 'LOST'
 }
 
+// USER
 export interface User {
   id: string;
   name: string;
@@ -38,12 +52,14 @@ export interface User {
   avatar: string;
 }
 
+// CITY
 export interface City {
   id: string;
   name: string;
   status: EntityStatus;
 }
 
+// AREA
 export interface Area {
   id: string;
   cityId: string;
@@ -52,6 +68,7 @@ export interface Area {
   pincode?: string;
 }
 
+// PROJECT
 export interface Project {
   id: string;
   name: string;
@@ -64,6 +81,7 @@ export interface Project {
   pincode?: string;
 }
 
+// TASK
 export interface Task {
   id: string;
   description: string;
@@ -71,17 +89,20 @@ export interface Task {
   status: 'PENDING' | 'COMPLETED';
 }
 
+// LEAD
 export interface Lead {
   id: string;
   name: string;
   email: string;
   phone: string;
+  whatsappNo?: string;
   source: string;
   cityId: string;
   areaId: string;
-  projectIds: string[]; 
+  projectIds: string[];
   status: LeadStatus;
   qualification?: LeadQualification;
+  configuration?: '1BHK' | '2BHK' | '3BHK' | '4BHK' | 'Studio';
   originalContactDate: string;
   lastContactDate?: string;
   nextContactDate?: string;
@@ -91,6 +112,8 @@ export interface Lead {
   pincode?: string;
 }
 
+
+// CROSS PITCH PROPOSAL
 export interface CrossPitchProposal {
   id: string;
   leadId: string;

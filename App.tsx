@@ -31,6 +31,7 @@ import Home from './src/pages/home';
 import ProjectsGrid from './src/pages/ProjectsGrid';
 import UserForm from './src/pages/UserForm';
 import DeveloperForm from './src/pages/DeveloperForm';
+import { AllProjectsTable } from './src/components/AllProjects/AllProjectsTable';
 
 const App: React.FC = () => {
   const [user, setUser] = useState(MOCK_USERS[0]); 
@@ -183,6 +184,17 @@ const App: React.FC = () => {
             </div>
           </div>
         );
+
+
+        case 'all-projects':
+        return (
+        <AllProjectsTable
+        leads={leads}
+        projects={projects}
+        />
+       );
+
+
       case 'reports':
         return (
           <div className="bg-white p-10 rounded-3xl shadow-sm border border-slate-100 text-center">
@@ -230,7 +242,7 @@ const App: React.FC = () => {
               Sign in as Sales Executive
             </button>
           </div>
-          <p className="mt-8 text-[10px] text-slate-400 font-bold uppercase tracking-widest">Powered by Gemini Engine</p>
+          <p className="mt-8 text-[10px] text-slate-400 font-bold uppercase tracking-widest">Powered by Valtriix IT Solution</p>
         </div>
       </div>
     );
@@ -271,22 +283,22 @@ const App: React.FC = () => {
          <Route path="/projects" element={<ProjectsGrid title="Projects" projects={projects} />} />
 
 
-         <Route
-          path="/dashboard/*"
-          element={
-          <Layout
-            user={user}
-            onLogout={() => setIsAuthenticated(false)}
-            activeTab={activeTab}
-            setActiveTab={(t) => {
-              setActiveTab(t);
-              setSelectedLeadId(null);
-            }}
-          >
-            {renderContent()}
-          </Layout>
-        }
-      />
+        <Route
+  path="/dashboard/*"
+  element={
+    <Layout
+      user={user}
+      onLogout={() => setIsAuthenticated(false)}
+      activeTab={activeTab}
+      setActiveTab={(t) => {
+        setActiveTab(t);
+        setSelectedLeadId(null);
+      }}
+    >
+      {renderContent()}
+    </Layout>
+  }
+/>
         
       
        
